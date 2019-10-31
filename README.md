@@ -4,9 +4,35 @@ Tex template for SPEIT internship report. 巴黎高科学院工程师实习报�
 
 Pull requests are appreciated. Feel free to tell me that you can't wait to be one collaborator!
 
+## Project structure
+
+```bash
+├── internship.tex (entry)  
+├── tex  
+│   ├── id.tex (cover info, keywords, etc.)  
+│   ├── abstract.tex  
+│   ├── intro.tex (introduction)  
+│   ├── app_*.tex (appendix)  
+│   ├── *.tex (body chapters)  
+├── bib  
+│   ├── *.bib (bibliography)  
+├── figure  
+│   ├── *.pdf/png/jpg/eps (figures)  
+├───#######################################  
+├───#######################################  
+├── 官方word模板.docx  
+├── sjtuthesis.cfg  
+├── sjtuthesis.cls  
+├── .latexmkrc  
+├── Makefile  
+├── README.md  
+```
+
+:warning: Do not need to touch the files below, unless you decide to change layout or style of this template.
+
 ## How to use online
 
-Clone the following template on Overleaf:
+Please clone the following template on Overleaf:
 
 [Overleaf template](https://www.overleaf.com/read/ndszvjtqykzq),
 
@@ -16,7 +42,7 @@ then enjoy it anywhere :blush:
 
 ### Preparation
 
-Utilities recommended for writing locally on your WINDOWS laptop:
+Download source files on your laptop. Utilities recommended for writing locally on WINDOWS are as followings:
 - [texlive](http://mirror.hust.edu.cn/CTAN/systems/texlive/tlnet/)
 - [editor](https://www.texstudio.org)
 - [font](https://pan.baidu.com/s/1kV68haJ)(optional)
@@ -29,9 +55,15 @@ Utilities recommended for writing locally on your WINDOWS laptop:
 - **make clean**: clean up auxiliary files
 - **make debug**: error debug
 
-:warning: Do NOT and Do NOT Need to call `make pvc` followed by another `make`!
+:warning: Do NOT and Do NOT Need to call `make pvc` followed by another `make`!  
 
-:exclamation: You may directly pass by a whole `latexmk` command in shell or in TexStudio options.
+You may directly pass by a whole `latexmk` command in shell or in TexStudio options. For example,  
+
+In shell: `latexmk -xelatex -gg -silent internship`
+
+In TexStudio (Options --> Configure --> Commands --> latexmk):  
+`latexmk.exe -xelatex -gg -silent -synctex=1 -interaction=nonstopmode %.tex`
+
 
 ### References
 

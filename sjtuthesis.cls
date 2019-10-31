@@ -1,6 +1,6 @@
 %# -*- coding: utf-8-unix -*-
 %==================================================
-%% sjtuthesis.cls for SJTU Master Thesis
+%% sjtuthesis.cls
 %%==================================================
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
@@ -59,6 +59,15 @@
 \AtEndOfClass{\input{sjtuthesis.cfg}}
 
 % Chinese variables
+\newcommand\myStudentID[1]{\def\sjtu@value@myStudentID{#1}}
+\newcommand\myName[1]{\def\sjtu@value@myName{#1}}
+\newcommand\myMajor[1]{\def\sjtu@value@myMajor{#1}}
+\newcommand\myCompany[1]{\def\sjtu@value@myCompany{#1}}
+\newcommand\myPosition[1]{\def\sjtu@value@myPosition{#1}}
+\newcommand\myDuration[1]{\def\sjtu@value@myDuration{#1}}
+\newcommand\mySpeitTutor[1]{\def\sjtu@value@mySpeitTutor{#1}}
+\newcommand\myEnterpriseTutor[1]{\def\sjtu@value@myEnterpriseTutor{#1}}
+
 \newcommand\classification[1]{\def\sjtu@value@classification{#1}}
 \newcommand\studentnumber[1]{\def\sjtu@value@studentnumber{#1}}
 \newcommand\confidential[1]{\def\sjtu@value@confidential{#1}}
@@ -99,7 +108,7 @@
 %==========
 
 \RequirePackage{etoolbox}
-\RequirePackage{geometry} %设置版面
+\RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{pageslts}
 \RequirePackage[titles]{tocloft}
@@ -669,14 +678,14 @@
       \zihao{-3}
       \def\arraystretch{1.5}
       \begin{tabular}{p{13em}r}
-      \bf \sjtu@label@StudentID        & \underline{\makebox[210pt]{\sjtu@label@myStudentID}} \\
-      \bf \sjtu@label@Name             & \underline{\makebox[210pt]{\sjtu@label@myName}} \\
-      \bf \sjtu@label@Major            & \underline{\makebox[210pt]{\sjtu@label@myMajor}} \\
-      \bf \sjtu@label@Company          & \underline{\makebox[210pt]{\sjtu@label@myCompany}} \\
-      \bf \sjtu@label@Position         & \underline{\makebox[210pt]{\sjtu@label@myPosition}} \\
-      \bf \sjtu@label@Duration         & \underline{\makebox[210pt]{\sjtu@label@myDuration}} \\
-      \bf \sjtu@label@SpeitTutor       & \underline{\makebox[210pt]{\sjtu@label@mySpeitTutor}} \\
-      \bf \sjtu@label@EnterpriseTutor  & \underline{\makebox[210pt]{\sjtu@label@myEnterpriseTutor}} \\
+      \bf \sjtu@label@StudentID        & \underline{\makebox[210pt]{\sjtu@value@myStudentID}} \\
+      \bf \sjtu@label@Name             & \underline{\makebox[210pt]{\sjtu@value@myName}} \\
+      \bf \sjtu@label@Major            & \underline{\makebox[210pt]{\sjtu@value@myMajor}} \\
+      \bf \sjtu@label@Company          & \underline{\makebox[210pt]{\sjtu@value@myCompany}} \\
+      \bf \sjtu@label@Position         & \underline{\makebox[210pt]{\sjtu@value@myPosition}} \\
+      \bf \sjtu@label@Duration         & \underline{\makebox[210pt]{\sjtu@value@myDuration}} \\
+      \bf \sjtu@label@SpeitTutor       & \underline{\makebox[210pt]{\sjtu@value@mySpeitTutor}} \\
+      \bf \sjtu@label@EnterpriseTutor  & \underline{\makebox[210pt]{\sjtu@value@myEnterpriseTutor}} \\
       \end{tabular}
     }
   \end{center}
@@ -795,7 +804,7 @@
     %% 前言页眉页脚
     \fancypagestyle{front}{%
       \fancyhf{}
-      \fancyhead[L]{\includegraphics[height=1.6cm, keepaspectratio]{figure/sjtubanner}}
+      \fancyhead[L]{\includegraphics[height=1.5cm, keepaspectratio]{figure/sjtubanner}}
       % \fancyhead[C]{\parbox[b]{\markboxwidth}{\raggedleft\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}}
       \fancyhead[C]{\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}
       % \fancyfoot[C]{\sjtu@fancyfoot{\thepage}{\lastpageref{pagesLTS.Roman}}}
@@ -804,7 +813,7 @@
     %% 正文页眉页脚
     \fancypagestyle{main}{%
       \fancyhf{}
-      \fancyhead[L]{\includegraphics[height=1.6cm, keepaspectratio]{figure/sjtubanner}}
+      \fancyhead[L]{\includegraphics[height=1.5cm, keepaspectratio]{figure/sjtubanner}}
       % \fancyhead[C]{\parbox[b]{\markboxwidth}{\raggedleft\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}}
       \fancyhead[C]{\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}
       % \fancyfoot[C]{\sjtu@fancyfoot{\thepage}{\lastpageref{pagesLTS.arabic}}}
@@ -813,7 +822,7 @@
     % 英文大摘要
     \fancypagestyle{biglast}{%
       \fancyhf{}
-      \fancyhead[L]{\includegraphics[height=1.6cm, keepaspectratio]{figure/sjtubanner}}
+      \fancyhead[L]{\includegraphics[height=1.5cm, keepaspectratio]{figure/sjtubanner}}
       % \fancyhead[C]{\parbox[b]{\markboxwidth}{\raggedleft\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}}
       \fancyhead[C]{\nouppercase{\sjtu@fancyhead\sjtu@value@titlemark}}
       % \fancyfoot[C]{\sjtu@fancyfoot{\theCurrentPageLocal}{\lastpageref{pagesLTS.roman.local}}}
