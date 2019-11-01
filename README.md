@@ -1,6 +1,6 @@
 # Internship-Report
 
-Tex template for SPEIT internship report. 巴黎高科学院工程师实习报告LaTeX模板。
+Tex template for SPEIT engineer internship report. 巴黎高科学院工程师实习报告LaTeX模板。
 
 Pull requests are appreciated. Feel free to tell me that you can't wait to be one collaborator!
 
@@ -34,7 +34,7 @@ Pull requests are appreciated. Feel free to tell me that you can't wait to be on
 
 Please clone the following template on Overleaf:
 
-[Overleaf template](https://www.overleaf.com/read/ndszvjtqykzq),
+[![Overleaf](https://img.shields.io/badge/overleaf-SPEIT%20Internship%20Report-brightgreen)](https://www.overleaf.com/latex/templates/speit-internship-report/qtdxjrxcpbrx)
 
 then enjoy it anywhere :blush:
 
@@ -44,11 +44,13 @@ then enjoy it anywhere :blush:
 
 Download source files on your laptop. Utilities recommended for writing locally on WINDOWS are as followings:
 - [texlive](http://mirror.hust.edu.cn/CTAN/systems/texlive/tlnet/)
-- [editor](https://www.texstudio.org)
+- [TexStudio](https://www.texstudio.org) or [LaTeX extension in VS Code](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 - [font](https://pan.baidu.com/s/1kV68haJ)(optional)
 - [Windows shell](https://babun.github.io/)(optional)
 
-### Commands
+### Usage
+
+#### No IDE, shell only
 
 - **make**: compile and generate `internship.pdf`
 - **make pvc**(recommended): continually compile and update target whenever src files change
@@ -57,15 +59,87 @@ Download source files on your laptop. Utilities recommended for writing locally 
 
 :warning: Do NOT and Do NOT Need to call `make pvc` followed by another `make`!  
 
-You may directly pass by a whole `latexmk` command in shell or in TexStudio options. For example,  
+You may also pass by a whole `latexmk` command of your choice:  
 
-In shell: `latexmk -xelatex -gg -silent internship`
+`latexmk -xelatex -silent internship`
 
-In TexStudio (Options --> Configure --> Commands --> latexmk):  
+
+#### TexStudio
+
+For example, fill in (*Options* --> *Configure* --> *Commands* --> *latexmk*) with appropriate arguments:  
+
 `latexmk.exe -xelatex -gg -silent -synctex=1 -interaction=nonstopmode %.tex`
 
 
-### References
+#### VS Code + Latex Workshop extension
+
+For example, here is my setting file of Latex Workshop:
+
+```json
+{
+  "latex-workshop.latex.recipes":[
+    {
+      "name": "latexmk 🔃",
+      "tools": [
+        "latexmk"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools":[
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-silent",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "browser",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.intellisense.unimathsymbols.enabled": true,
+  "latex-workshop.latex.autoClean.run": "onFailed",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.showContextMenu": true,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.loa",
+    "*.run.xml",
+    "*.xdv",
+    "*.thm",
+    "*.bcf"
+  ],
+}
+```
+
+
+## References
 
 - [SJTUThesis src](https://github.com/sjtug/SJTUThesis)
 - [SJTUThesis wiki](https://github.com/sjtug/SJTUThesis/wiki/%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
